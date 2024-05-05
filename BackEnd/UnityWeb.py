@@ -1,11 +1,21 @@
 #!/usr/bin/python3
 """SocialMedia"""
-from sqlalchemy import create_engine, String, Column, ForeignKey, Enum
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.dialects.mysql import VARCHAR, CHAR
-import uuid
 import os
+import uuid
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import declarative_base  # Updated import
+from sqlalchemy import Column, Enum, ForeignKey, Date
+from sqlalchemy.dialects.mysql import VARCHAR, CHAR
+from werkzeug.security import generate_password_hash, check_password_hash
+
+# Create the base class using the declarative_base factory function
+Base = declarative_base()
+
+# Define the generate_uuid function
+def generate_uuid():
+    return str(uuid.uuid4())
+
 
 from sqlalchemy.orm import declarative_base
 Base = declarative_base()
